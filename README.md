@@ -6,13 +6,17 @@
 
 `apie` is still under development. It is functional but subject to change.
 
+* it provides a simple functional router
+* it handles all HTTP request/response boilerplate
+* it does not deal with parameter matching yet
+
 ## Usage
 
 create a simple API that handles addition and subtraction:
 
 ```js
-import { serve, ConnInfo } from "https://deno.land/std/http/mod.ts";
-import { createHandler, Route } from "https://deno.land/x/apie/mod.ts";
+import { serve } from "https://deno.land/std/http/mod.ts";
+import { createHandler } from "https://deno.land/x/apie/mod.ts";
 
 function add({ a, b }) {
   return a + b;
