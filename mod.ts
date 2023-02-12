@@ -33,24 +33,21 @@ export function createHandler(routes: Route[]) {
       if (routePath !== pathname) continue;
 
       // success
-      console.log(route);
+      // console.log(route);
       try {
         let result = await route.handler(jsonBody);
         return new Response(
-          JSON.stringify({
-            success: true,
-            result,
-          }), {
+          JSON.stringify(result),
+          {
             headers: {
               "content-type": "application/json; charset=UTF-8",
             },
-          }
+          },
         );
       } catch (e) {
         return new Response(
-          JSON.stringify({
-            error: e.message,
-          }), {
+          JSON.stringify({ message: e.message }),
+          {
             status: 400,
             headers: {
               "content-type": "application/json; charset=UTF-8",
